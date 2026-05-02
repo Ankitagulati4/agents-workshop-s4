@@ -1,0 +1,31 @@
+{
+  "_comment": "Copy the relevant section into your Claude Desktop config file.",
+  "_config_location": {
+    "macOS": "~/Library/Application Support/Claude/claude_desktop_config.json",
+    "Windows": "%APPDATA%\\Claude\\claude_desktop_config.json"
+  },
+  "_instructions": [
+    "1. Open (or create) the config file at the path above",
+    "2. Paste the 'mcpServers' block below into it",
+    "3. Update the 'command' path to your actual Python interpreter",
+    "4. Update the 'args' path to the absolute path of solution.py",
+    "5. Restart Claude Desktop",
+    "6. Look for the tools icon (hammer) in the chat input bar"
+  ],
+
+  "mcpServers": {
+    "workshop-server": {
+      "command": "python",
+      "_command_alternatives": {
+        "if using venv (macOS/Linux)": "/path/to/s4_workshop/.venv/bin/python",
+        "if using venv (Windows)":     "C:\\path\\to\\s4_workshop\\.venv\\Scripts\\python.exe",
+        "if using pyenv":              "~/.pyenv/shims/python"
+      },
+      "args": ["/absolute/path/to/s4_workshop/mcp_lab/solution.py"],
+      "env": {
+        "OPENAI_API_KEY": "sk-...",
+        "OPENAI_MODEL_NAME": "gpt-4o-mini"
+      }
+    }
+  }
+}
